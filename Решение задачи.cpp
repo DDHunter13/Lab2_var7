@@ -8,7 +8,7 @@ int main(void){
 
 	const double t = 2.54;
 	int err, n, d;
-	double f, i;
+	double i;
 
 	setlocale(LC_ALL, "Russian");
 
@@ -40,8 +40,7 @@ int main(void){
 	cout << endl;
 
 	for ( i; i < n2 + 1; ++i) {
-		f = i / t;
-		cout << setw(8) << f << i << endl;
+		cout << setw(8) << i / t << i << endl;
 		if (d2 < (i + 1) / t) {
 			cout << setw(8) << d2 << d2 * t << endl;
 			d2++;
