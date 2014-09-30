@@ -7,8 +7,8 @@ using namespace std;
 int main(void){
 
 	const double t = 2.54;
-	int err;
-	double f, d, n;
+	int err, n, d;
+	double f, i;
 
 	setlocale(LC_ALL, "Russian");
 
@@ -17,22 +17,34 @@ int main(void){
 	cout << fixed;
 
 	cout << "Введите целое число - расстояние в см. " << endl;
-	err = scanf_s("%lf", &n);
+	err = scanf_s("%d", &n);
 	if (err != 1) {                                   
 		cout << "Введенные данные неверны." << endl;
 		return 1;
 	}
+	double n2 = n;
+
+	if (n < 0) {
+		d = n / t;
+		i = n2;
+		n2 = -1.0;
+	}
+	else {
+		d = 1;
+		i = 1.0;
+	}
+	double d2 = d;
 
 	cout << endl;
-	d = 1.0;
 	cout << "Дюймы  " << " См" << endl;
 	cout << endl;
-	for (double i = 1.0; i < n + 1; i++) {
+
+	for ( i; i < n2 + 1; ++i) {
 		f = i / t;
 		cout << setw(8) << f << i << endl;
-		if (d < (i + 1) / t) {
-			cout << setw(8) << d << d * t << endl;
-			d++;
+		if (d2 < (i + 1) / t) {
+			cout << setw(8) << d2 << d2 * t << endl;
+			d2++;
 		}
 	}
 	return 0;
